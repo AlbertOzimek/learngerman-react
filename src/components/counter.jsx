@@ -1,10 +1,13 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 
-export default function Counter() {
+const Counter = props => {
+  useState({ value: 1 });
   return (
     <React.Fragment>
-      <h1>Counter component works</h1>
+      <h1>Counter component worksXXX</h1>
       <button>Increment</button>
     </React.Fragment>
   );
-}
+};
+
+export default Counter;
