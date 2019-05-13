@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
 const Counter = props => {
-  useState({ value: 1 });
+  const [state, setState] = useState({ count: 0 });
+  const formatCount = () => {
+    return state.count === 0 ? "Zero" : state.count;
+  };
   return (
     <React.Fragment>
-      <h1>Counter component worksXXX</h1>
+      <span>Count: {formatCount(state.count)}</span>
       <button>Increment</button>
     </React.Fragment>
   );
