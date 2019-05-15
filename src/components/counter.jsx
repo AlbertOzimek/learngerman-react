@@ -9,10 +9,10 @@ const Counter = props => {
   };
   return (
     <React.Fragment>
-      <h1>Count: {formatCount(state.count)}</h1>
-      <button type="button" class="btn btn-primary">
-        Increment
-      </button>
+      <span className="badge badge-primary m-2">
+        Count: {formatCount(state.count)}
+      </span>
+      <button className="btn btn-secondary btn-sm">Increment</button>
     </React.Fragment>
   );
 };
