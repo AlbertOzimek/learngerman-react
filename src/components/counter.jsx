@@ -16,7 +16,12 @@ const Counter = props => {
       </ul>
     );
   };
-  return <React.Fragment>{renderTags()}</React.Fragment>;
+  return (
+    <React.Fragment>
+      {state.tags.length === 0 && "Please create a new tag!"}
+      {renderTags()}
+    </React.Fragment>
+  );
 };
 
 export default Counter;
