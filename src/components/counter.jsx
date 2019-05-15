@@ -12,7 +12,8 @@ const Counter = props => {
     tags: ["tag1", "tag2", "tag3"]
   });
 
-  const handleIncrement = () => {
+  const handleIncrement = product => {
+    console.log(product);
     setState({ ...state, count: state.count + 1 });
   };
 
@@ -30,6 +31,8 @@ const Counter = props => {
       </ul>
     );
   };
+
+  const product = { id: 123 };
   return (
     <React.Fragment>
       <span className={getBadgeClasses(state)}>
@@ -38,7 +41,7 @@ const Counter = props => {
 
       {state.tags.length === 0 && "Please create a new tag!"}
       {renderTags()}
-      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={() => handleIncrement(product)}>Increment</button>
     </React.Fragment>
   );
 };
