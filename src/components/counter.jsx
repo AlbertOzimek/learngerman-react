@@ -12,7 +12,6 @@ const Counter = props => {
   });
 
   const handleIncrement = product => {
-    console.log(product);
     setState({ ...state, value: state.value + 1 });
   };
 
@@ -20,17 +19,19 @@ const Counter = props => {
     return state.value === 0 ? "Zero" : state.value;
   };
 
-  const product = { id: 123 };
   return (
     <React.Fragment>
       <span className={getBadgeClasses(state)}>
         Count: {formatCount(state.value)}
       </span>
-      <button
-        className="btn btn-secondary"
-        onClick={() => handleIncrement(product)}
-      >
+      <button className="btn btn-secondary" onClick={() => handleIncrement()}>
         Increment
+      </button>
+      <button
+        onClick={() => props.onDelete(props.id)}
+        className="btn btn-danger btn-sm m-2"
+      >
+        Delete
       </button>
     </React.Fragment>
   );

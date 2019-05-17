@@ -10,11 +10,21 @@ const Counters = () => {
       { id: 4, value: 0 }
     ]
   });
+
+  const handleDelete = counterId => {
+    console.log("Event Handler called", counterId);
+  };
+
   return (
     <React.Fragment>
       {state.counters.map(counter => (
         <React.Fragment>
-          <Counter key={counter.id} value={counter.value} />
+          <Counter
+            key={counter.id}
+            id={counter.id}
+            onDelete={handleDelete}
+            value={counter.value}
+          />
           <br />
         </React.Fragment>
       ))}
