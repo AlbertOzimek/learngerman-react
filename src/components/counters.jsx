@@ -16,14 +16,31 @@ const Counters = props => {
     setState({ counters });
   };
 
+  const handleReset = () => {
+    const counters = state.counters.map(c => {
+      const value = 0;
+      return { value };
+    });
+    setState({ counters });
+  };
+
   return (
     <React.Fragment>
-      {state.counters.map(counter => (
-        <React.Fragment>
-          <Counter key={counter.id} onDelete={handleDelete} counter={counter} />
-          <br />
-        </React.Fragment>
-      ))}
+      <button onClick={handleReset} className="btn btn-primary btn-sm m-2">
+        Reset
+      </button>
+      <div>
+        {state.counters.map(counter => (
+          <React.Fragment>
+            <Counter
+              key={counter.id}
+              onDelete={handleDelete}
+              counter={counter}
+            />
+            <br />
+          </React.Fragment>
+        ))}
+      </div>
     </React.Fragment>
   );
 };
