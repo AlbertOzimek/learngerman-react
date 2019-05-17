@@ -12,11 +12,8 @@ const Counters = props => {
   });
 
   const handleDelete = counterId => {
-    setState(prevState => {
-      return {
-        counters: prevState.counters.filter(c => c.id !== counterId)
-      };
-    });
+    const counters = state.counters.filter(c => c.id !== counterId);
+    setState({ counters });
   };
 
   return (
