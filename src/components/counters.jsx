@@ -23,9 +23,9 @@ const Counters = props => {
     setState({ counters });
   };
 
-  const handleIncrement = counterId => {
+  const handleIncrement = counter => {
     const counters = state.counters.map(c =>
-      c.id === counterId ? { id: c.id, value: c.value + 1 } : c
+      c.id === counter.id ? { id: c.id, value: c.value + 1 } : c
     );
     setState({ counters });
   };
