@@ -8,7 +8,7 @@ function getBadgeClasses(state) {
 
 const Counter = props => {
   const [state, setState] = useState({
-    value: props.value
+    value: props.counter.value
   });
 
   const handleIncrement = product => {
@@ -28,7 +28,7 @@ const Counter = props => {
         Increment
       </button>
       <button
-        onClick={() => props.onDelete(props.id)}
+        onClick={() => props.onDelete(props.counter.id)}
         className="btn btn-danger btn-sm m-2"
       >
         Delete

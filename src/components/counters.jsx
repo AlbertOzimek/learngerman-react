@@ -20,12 +20,7 @@ const Counters = props => {
     <React.Fragment>
       {state.counters.map(counter => (
         <React.Fragment>
-          <Counter
-            key={counter.id}
-            id={counter.id}
-            onDelete={handleDelete}
-            value={counter.value}
-          />
+          <Counter key={counter.id} onDelete={handleDelete} counter={counter} />
           <br />
         </React.Fragment>
       ))}
