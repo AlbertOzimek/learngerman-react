@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Counter from "./counter";
 
-const Counters = () => {
-  const [state] = useState({
+const Counters = props => {
+  const [state, setState] = useState({
     counters: [
       { id: 1, value: 4 },
       { id: 2, value: 2 },
@@ -12,7 +12,11 @@ const Counters = () => {
   });
 
   const handleDelete = counterId => {
-    console.log("Event Handler called", counterId);
+    setState(prevState => {
+      return {
+        counters: prevState.counters.filter(c => c.id !== counterId)
+      };
+    });
   };
 
   return (
