@@ -18,8 +18,7 @@ const Counters = props => {
 
   const handleReset = () => {
     const counters = state.counters.map(c => {
-      const value = 0;
-      return { value };
+      return { id: c.id, value: 0 };
     });
     setState({ counters });
   };
