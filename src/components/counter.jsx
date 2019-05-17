@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function getBadgeClasses(state) {
   let classes = "badge m-2 badge-";
@@ -7,24 +7,19 @@ function getBadgeClasses(state) {
 }
 
 const Counter = props => {
-  const [state, setState] = useState({
-    value: props.counter.value
-  });
-
-  const handleIncrement = product => {
-    setState({ ...state, value: state.value + 1 });
-  };
-
   const formatCount = () => {
-    return state.value === 0 ? "Zero" : state.value;
+    return props.counter.value === 0 ? "Zero" : props.counter.value;
   };
 
   return (
     <React.Fragment>
-      <span className={getBadgeClasses(state)}>
-        Count: {formatCount(state.value)}
+      <span className={getBadgeClasses(props.counter)}>
+        Count: {formatCount(props.counter.value)}
       </span>
-      <button className="btn btn-secondary" onClick={() => handleIncrement()}>
+      <button
+        className="btn btn-secondary"
+        onClick={() => props.onIncrement(props.counter.id)}
+      >
         Increment
       </button>
       <button

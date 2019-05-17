@@ -23,6 +23,13 @@ const Counters = props => {
     setState({ counters });
   };
 
+  const handleIncrement = counterId => {
+    const counters = state.counters.map(c =>
+      c.id === counterId ? { id: c.id, value: c.value + 1 } : c
+    );
+    setState({ counters });
+  };
+
   return (
     <React.Fragment>
       <button onClick={handleReset} className="btn btn-primary btn-sm m-2">
@@ -34,6 +41,7 @@ const Counters = props => {
             <Counter
               key={counter.id}
               onDelete={handleDelete}
+              onIncrement={handleIncrement}
               counter={counter}
             />
             <br />
